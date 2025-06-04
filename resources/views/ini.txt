@@ -1,0 +1,163 @@
+
+
+
+
+
+
+               @layer utilities {
+    @keyframes fadeIn {
+        0% {
+            /* opacity: 0; */
+            /* transform: translateY(-20px); */
+            width: calc(1 / 100 * 100%);
+        }
+        20% {
+            width: calc(1 / 2 * 100%);
+        }
+        95% {
+            width: calc(1 / 2 * 100%);
+        }
+
+        100% {
+            /* opacity: 1; */
+            /* transform: translateY(0); */
+            width: calc(1 * 100%);
+        }
+    }
+
+    @keyframes text-in {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    @keyframes maju-in {
+        0% {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes nav-expend {
+        0% {
+            max-width: calc(4 / 12 * 100%);
+        }
+        100% {
+            max-width: calc(11 / 12 * 100%);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 2.4s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+    .animate-text-in {
+        animation: text-in 0.7s;
+        animation-fill-mode: forwards;
+    }
+    .animate-maju-in {
+        animation: maju-in 0.3s;
+        animation-fill-mode: forwards;
+    }
+    .animate-nav-ex {
+        animation: nav-expend 0.3s;
+        animation-fill-mode: forwards;
+    }
+
+    .delay-300 {
+        animation-delay: 0.3s;
+    }
+
+    .delay-700 {
+        animation-delay: 0.7s;
+    }
+    .delay-1100 {
+        animation-delay: calc(1100 * 1ms);
+    }
+    .delay-1300 {
+        animation-delay: calc(1300 * 1ms);
+    }
+    .delay-1500 {
+        animation-delay: calc(1500 * 1ms);
+    }
+    .delay-1700 {
+        animation-delay: calc(1700 * 1ms);
+    }
+    .delay-1900 {
+        animation-delay: calc(1900 * 1ms);
+    }
+    .delay-3100 {
+        animation-delay: calc(3100 * 1ms);
+    }
+
+    /* Class untuk mengunci scroll */
+    .body-no-scroll {
+        overflow: hidden;
+    }
+}
+
+
+
+
+<div class="flex border-b border-gray-300">
+                            <button
+                                @click="activeTab = 'drink'"
+                                :class="activeTab === 'drink' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-600'"
+                                class="py-2 px-4 focus:outline-none font-medium">
+                                Drink
+                            </button>
+                            <button
+                                @click="activeTab = 'milkshake'"
+                                :class="activeTab === 'milkshake' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-600'"
+                                class="py-2 px-4 focus:outline-none font-medium">
+                                Milkshake
+                            </button>
+                            <button
+                                @click="activeTab = 'snack'"
+                                :class="activeTab === 'snack' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-600'"
+                                class="py-2 px-4 focus:outline-none font-medium">
+                                Snack
+                            </button>
+                        </div>
+
+                        <!-- Tab Contents -->
+
+                        
+                        <div class="mt-6">
+                            <!-- Drink Tab -->
+                            <div x-show="activeTab === 'drink'" class="space-y-4">
+                                @foreach($drinks as $product)
+                                <div class="p-4 border rounded-lg shadow-sm">
+                                    <h3 class="font-bold">{{ $product->name }}</h3>
+                                    <p class="text-gray-600">Rp {{ number_format($product->price, 0) }}</p>
+                                </div>
+                                @endforeach
+                            </div>
+
+                            <!-- Milkshake Tab -->
+                            <div x-show="activeTab === 'milkshake'" class="space-y-4" x-cloak>
+                                @foreach($milkshakes as $product)
+                                <div class="p-4 border rounded-lg shadow-sm">
+                                    <h3 class="font-bold">{{ $product->name }}</h3>
+                                    <p class="text-gray-600">Rp {{ number_format($product->price, 0) }}</p>
+                                </div>
+                                @endforeach
+                            </div>
+
+                            <!-- Snack Tab -->
+                            <div x-show="activeTab === 'snack'" class="space-y-4" x-cloak>
+                                @foreach($snacks as $product)
+                                <div class="p-4 border rounded-lg shadow-sm">
+                                    <h3 class="font-bold">{{ $product->name }}</h3>
+                                    <p class="text-gray-600">Rp {{ number_format($product->price, 0) }}</p>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
