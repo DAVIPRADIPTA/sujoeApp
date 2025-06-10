@@ -25,9 +25,12 @@ Route::get('/', [ProductController::class, 'index'])->name('home');
 //     ->middleware(['auth', 'verified'])
 //     ->name('dashboard');
 
-Route::middleware('auth')->group(function(){
-    Route::get('dashboard',[DashboardController:: class, 'index'])->name('dashboard');
-    Route::get('kategori',[DashboardController:: class, 'kategori'])->name('kategori');
+
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('kategori', [DashboardController::class, 'kategori'])->name('kategori');
+
+    Route::get('dashboard/search', [ProductController::class, 'search'])->name('dashboard.search');
 });
 
 Route::resource('products', ProductController::class);
