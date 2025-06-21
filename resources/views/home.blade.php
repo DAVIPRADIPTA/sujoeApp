@@ -113,38 +113,67 @@
                         </div>
 
                     </div>
-                    <div class="h-96 flex ">
-                        <swiper-container class="bg-sujoe h-full w-11/12 mx-auto rounded-3xl "
+                    @php
+                    $bgCarousel1 = asset("storage/carousel/carousel1.jpg");
+                    $bgCarousel2 = asset("storage/carousel/carousel2.jpg");
+                    $bgCarousel3 = asset("storage/carousel/carousel3.jpg");
+                    @endphp
+
+                    <div class="h-52   flex ">
+                        <swiper-container class="bg-sujoe h-full w-11/12 mx-auto rounded-3xl  "
                             loop="true"
                             pagination="true"
                             pagination-clickable="true"
                             navigation="true"
                             space-between="100"
                             centered-slides="true">
-                            <swiper-slide class="flex justify-center items-center">Slide </swiper-slide>
-                            <swiper-slide class="flex justify-center items-center">Slide 2</swiper-slide>
-                            <swiper-slide class="flex justify-center items-center">Slide 3</swiper-slide>
+                            <swiper-slide class="flex justify-center items-center bg-cover bg-center h-full rounded-3xl"
+                                style="background-image: url('{{ $bgCarousel1 }}')">
+                                <!-- Optional: tambahkan overlay atau konten -->
+                            </swiper-slide>
+
+                            <swiper-slide class="flex justify-center items-center bg-cover bg-center h-full rounded-3xl"
+                                style="background-image: url('{{ $bgCarousel2 }}')">
+                                <!-- Optional: tambahkan overlay atau konten -->
+                            </swiper-slide>
+                            <swiper-slide class="flex justify-center items-center bg-cover bg-center h-full rounded-3xl"
+                                style="background-image: url('{{ $bgCarousel3 }}') ">
+                                <!-- Optional: tambahkan overlay atau konten -->
+                            </swiper-slide>
                         </swiper-container>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold mb-4">Favorite Products</h2>
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            @foreach($favoriteProducts as $product)
-                            <div class="p-4 border rounded-lg shadow">
-                                <h3 class="font-semibold">{{ $product->name }}</h3>
-                                <p class="text-sm text-gray-600">{{ $product->description }}</p>
-                                <p class="mt-1 text-blue-500 font-bold">Rp {{ number_format($product->price, 0) }}</p>
+                        <div class="w-11/12 mx-auto mt-20 ">
+                            <h2 class="text-xl font-bold mb-4 flex justify-center   ">Favorite Products</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                                @foreach($favoriteProducts as $product)
+                                @php
+                                $bgProduct = asset('storage/' . $product->image);
+                                $bgDefault = asset('storage/logo-sujoe.png');
+                                @endphp
+                                <div class=" border rounded-lg bg-sujoe shadow w-full ">
+                                    @if($product->image)
+                                    <div class="h-32 w-full bg-cover bg-clip-border bg-white  bg-no-repeat bg-center rounded"
+                                        style="background-image: url('{{ $bgProduct }}')">
+                                    </div>
+                                    @else
+                                    <div class="h-32 w-full bg-cover bg-clip-border bg-sujoe_base bg-no-repeat bg-center rounded"
+                                        style="background-image: url('{{ $bgDefault }}')">
+                                    </div>
+                                    @endif
 
-                                @if($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-32 h-32 object-cover">
-                                @endif
+                                    <h3 class="font-semibold">{{ $product->name }}</h3>
+                                    <p class="text-sm text-gray-600">{{ $product->description }}</p>
+                                    <p class="mt-1 text-blue-500 font-bold">Rp {{ number_format($product->price, 0) }}</p>
 
+
+                                </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
 
                     </div>
-                    <div x-data="{ activeTab: '{{ $categories->first()->slug }}' }" class="w-full max-w-4xl mx-auto mt-8">
+                    <div x-data="{ activeTab: '{{ $categories->first()->slug }}' }" class="h-80 rounded-xl max-w-4xl mx-auto mt-8 bg-sujoe w-11/12">
 
                         <!-- Tab Buttons -->
                         <div class="flex border-b border-gray-300">

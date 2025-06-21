@@ -28,8 +28,11 @@ Route::get('/', [ProductController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('product',[DashboardController::class, 'product'])->name('product');
     Route::get('kategori', [DashboardController::class, 'kategori'])->name('kategori');
 
+
+    Route::put('dashboard/update/{id}', [DashboardController::class, 'update'])->name('dashboard.update');
     Route::get('dashboard/search', [ProductController::class, 'search'])->name('dashboard.search');
 });
 
