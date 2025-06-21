@@ -143,6 +143,7 @@
                         </swiper-container>
                     </div>
                     <div>
+
                         <div class="w-11/12 mx-auto mt-20 ">
                             <h2 class="text-xl font-bold mb-4 flex justify-center   ">Favorite Products</h2>
                             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -161,6 +162,9 @@
                                         style="background-image: url('{{ $bgDefault }}')">
                                     </div>
                                     @endif
+
+                       
+
 
                                     <h3 class="font-semibold">{{ $product->name }}</h3>
                                     <p class="text-sm text-gray-600">{{ $product->description }}</p>
