@@ -127,7 +127,7 @@
                         </swiper-container>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold mb-4">Favorite Products</h2>
+                        <h2 class="text-xl font-bold mt-10 mb-4">Favorite Products</h2>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                             @foreach($favoriteProducts as $product)
                             <div class="p-4 border rounded-lg shadow">
