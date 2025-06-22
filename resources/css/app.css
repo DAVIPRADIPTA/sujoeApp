@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -56,16 +56,16 @@
     }
 
     @keyframes bounce {
-    0%, 100% {
-        transform: translateY(-5%);
-        animation-timing-function: cubic-bezier(0.8,0,1,1);
+        0%,
+        100% {
+            transform: translateY(-5%);
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+            transform: none;
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
     }
-    50% {
-        transform: none;
-        animation-timing-function: cubic-bezier(0,0,0.2,1);
-    }
-}
-
 
     .animate-fade-in {
         animation: fadeIn 2.4s ease-in-out;
@@ -83,7 +83,6 @@
         animation: nav-expend 0.3s;
         animation-fill-mode: forwards;
     }
-    
 
     .delay-300 {
         animation-delay: 0.3s;
@@ -111,9 +110,15 @@
         animation-delay: calc(3100 * 1ms);
     }
 
+    /* Hide scrollbar on Webkit (Chrome, Safari) */
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+    }
 
-
-
+    /* Hide scrollbar on Firefox */
+    .scrollbar-hidden {
+        scrollbar-width: none;
+    }
 
     /* Class untuk mengunci scroll */
     .body-no-scroll {

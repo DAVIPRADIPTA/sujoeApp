@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth scroll-pt-36">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>sujoe</title>
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png" />
+
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,12 +20,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <!-- Leaflet CSS -->
     <!-- Tambahkan di dalam <head> atau sebelum penutup </body> -->
-    <link
+    <!-- <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script
         src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
+    </script> -->
 
 
 
@@ -71,7 +73,7 @@
                     <div class="bg-transparent sticky top-0 backdrop-blur-md h-4">
 
                     </div>
-                    <div class="bg-sujoe sticky top-4  rounded-full navbar z-30   w-11/12 mx-auto">
+                    <div class="bg-sujoe sticky top-4  rounded-full navbar z-30   w-10/12 mx-auto">
                         <div class="mx-2 flex-1 px-2">
                             <x-application-logo class="w-12" />
                         </div>
@@ -93,21 +95,22 @@
                         <div class="hidden flex-none lg:block">
                             <ul class="menu menu-horizontal">
                                 <!-- Navbar menu content here -->
-                                <li><a>Navbar Item 1</a></li>
-                                <li><a>Navbar Item 2</a></li>
+                                <li><a href="#tentang">Tentang</a></li>
+                                <li><a href="#menu">Menu</a></li>
+                                <li><a href="#alamat">Alamat</a></li>
                             </ul>
                         </div>
                     </div>
                     <!-- Page content here -->
-                    <div class="container mx-auto py-8">
+                    <div id="tentang" class="container mx-auto py-8">
                         <div class="flex flex-col w-10/12 mx-auto gap-10">
                             <div class="flex justify-between items-center">
-                                <div class="text-[90px]  tracking-tighter leading-sujoe ">
+                                <div class="text-[30px] lg:text-[90px] leading-[45px] tracking-tighter lg:leading-sujoe ">
                                     Lorem ipsum <br /> dolor sit <br /> <span class="text-secondary">amet</span>
                                 </div>
-                                <img class=" w-[250px] " src="{{ asset('assets/maskot.png') }}" alt="">
+                                <img class="w-[150px] lg:w-[250px] " src="{{ asset('assets/maskot.png') }}" alt="">
                             </div>
-                            <p>
+                            <p class="text-[10px] lg:text-xs">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, repellendus molestiae eligendi illo iusto facilis ad ea rem perferendis doloribus! Quis sint, accusantium architecto, amet minus reiciendis magnam incidunt neque distinctio ut expedita enim, aspernatur asperiores et repellat nisi temporibus maiores quidem eius. Vero ad dolores esse placeat repudiandae laborum.
                             </p>
                         </div>
@@ -119,8 +122,8 @@
                     $bgCarousel3 = asset("storage/carousel/carousel3.jpg");
                     @endphp
 
-                    <div class="h-52   flex ">
-                        <swiper-container class="bg-sujoe h-full w-11/12 mx-auto rounded-3xl  "
+                    <div class=" flex aspect-[19/9]  w-10/12 mx-auto">
+                        <swiper-container class="bg-sujoe h-full w-full   mx-auto rounded-3xl  "
                             loop="true"
                             pagination="true"
                             pagination-clickable="true"
@@ -142,19 +145,20 @@
                             </swiper-slide>
                         </swiper-container>
                     </div>
-                    <div>
 
-                        <div class="w-11/12 mx-auto mt-20 ">
-                            <h2 class="text-xl font-bold mb-4 flex justify-center   ">Favorite Products</h2>
+                    <h2 id="menu" class="text-xl font-bold mb-4 flex justify-center  mt-20 ">Menu Favorit</h2>
+                    <div>
+                        <div class="w-10/12 mx-auto mt-8 ">
+
                             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                 @foreach($favoriteProducts as $product)
                                 @php
                                 $bgProduct = asset('storage/' . $product->image);
                                 $bgDefault = asset('storage/logo-sujoe.png');
                                 @endphp
-                                <div class=" border rounded-lg bg-sujoe shadow w-full ">
+                                <div class=" border rounded-xl bg-sujoe shadow w-full ">
                                     @if($product->image)
-                                    <div class="h-32 w-full bg-cover bg-clip-border bg-white  bg-no-repeat bg-center rounded"
+                                    <div class="h-32 w-full bg-cover bg-clip-border bg-white   bg-no-repeat bg-center rounded-xl"
                                         style="background-image: url('{{ $bgProduct }}')">
                                     </div>
                                     @else
@@ -162,119 +166,114 @@
                                         style="background-image: url('{{ $bgDefault }}')">
                                     </div>
                                     @endif
-
-                       
-
-
-                                    <h3 class="font-semibold">{{ $product->name }}</h3>
-                                    <p class="text-sm text-gray-600">{{ $product->description }}</p>
-                                    <p class="mt-1 text-blue-500 font-bold">Rp {{ number_format($product->price, 0) }}</p>
-
-
+                                    <h3 class="font-light mt-2 mx-2 text-[15px] lg:font-semibold">{{ $product->name }}</h3>
+                                    <p class="mx-2 text-[12px] text-gray-900">{{ $product->description }}</p>
+                                    <p class="mx-2 mt-1 text-slate-700  font-bold">Rp {{ number_format($product->price, 0) }}</p>
                                 </div>
                                 @endforeach
                             </div>
                         </div>
 
                     </div>
-                    <div x-data="{ activeTab: '{{ $categories->first()->slug }}' }" class="h-80 rounded-xl max-w-4xl mx-auto mt-8 bg-sujoe w-11/12">
 
-                        <!-- Tab Buttons -->
-                        <div class="flex border-b border-gray-300">
-                            @foreach($categories as $category)
-                            <button @click="activeTab = '{{ $category->slug }}'"
-                                :class="activeTab === '{{ $category->slug }}' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-600'"
-                                class="py-2 px-4 focus:outline-none font-medium">
-                                {{ $category->name }}
-                            </button>
-                            @endforeach
-
+                    <h1  class="mt-20 font-bold mx-auto text-xl">Menu</h1>
+                    <div class="flex gap-0 w-10/12 mx-auto lg:bg-sujoe lg:h-96 lg:rounded-3xl mt-8">
+                        <div class="hidden lg:block lg:w-1/2">
+                            <img src="{{ asset('assets/milkshake.jpg') }}" alt="" class="w-full h-full rounded-l-3xl">
                         </div>
-
-                        <!-- Tab Contents -->
-
-                        <div class="mt-6">
-                            <!-- Drink Tab -->
-
-
-                            <!-- Milkshake Tab -->
-                            @foreach($categories as $category)
-                            <div x-show="activeTab === '{{ $category->slug }}'" class="space-y-4" x-cloak>
-                                @foreach($category->products as $product)
-                                <div class="p-4 border rounded-lg shadow-sm">{{ $product->name }}</div>
+                        <div x-data="{ activeTab: '{{ $categories->first()->slug }}' }" class="lg:py-1 lg:w-1/2 lg:h-96 h-80 rounded-3xl lg:rounded-r-3xl max-w-4xl mx-auto  lg:mt-0 bg-sujoe w-full">
+                            <!-- Tab Buttons -->
+                            <div class="flex border items-center  bg-sujoe_base my-2 lg:my-0 mx-2 lg:12 rounded-full scrollbar-hidden border-gray-300 overflow-x-scroll">
+                                @foreach($categories as $category)
+                                <button @click="activeTab = '{{ $category->slug }}'"
+                                    :class="activeTab === '{{ $category->slug }}' ? 'border bg-sujoe text-gray-900  rounded-full' : 'text-gray-600'"
+                                    class="py-2 focus:outline-none font-medium px-3 text-sm  my-1 mx-1">
+                                    {{ $category->name }}
+                                </button>
                                 @endforeach
                             </div>
-                            @endforeach
+
+                            <!-- Tab Contents -->
+                            <div class="mt-3">
+                                @foreach($categories as $category)
+                                <div x-show="activeTab === '{{ $category->slug }}'" class="space-y-1 overflow-y-scroll scrollbar-hidden mx-2 bg-sujoe_base rounded-3xl lg:h-[310px]  h-60" x-cloak>
+                                    @foreach($category->products as $product)
+                                    <div class="p-1 border-b border-slate-800 text-[15px] flex justify-between mx-3 shadow-sm text-xs">
+                                        <h1>{{ $product->name }}</h1>
+                                        <p>Rp {{ number_format($product->price, 0) }}</p>
+                                    </div>
+                                    @endforeach
+                                </div>
+                                @endforeach
+                            </div>
 
                         </div>
                     </div>
-                    <div class="flex mx-auto gap-6 mt-6">
-                        <x-card
-                            :img="asset('assets/foto-depan-sujoe.png')"
-                            title="Sujoe Kramat"
-                            address="Alamat Sujoe Kramat"
-                            instagram="ini instagram"
-                            instagramLink="https://instagram.com/sujoekramat">
 
-                            <p>Ini adalah produk yang sedang diskon.</p>
-                        </x-card>
-                        <x-card
-                            :img="asset('assets/foto-depan-sujoe.png')"
-                            title="Sujoe Kramat"
-                            address="Alamat Sujoe Kramat"
-                            instagram="ini instagram"
-                            instagramLink="https://instagram.com/sujoekramat">
-
-                            <p>Ini adalah produk yang sedang diskon.</p>
-                        </x-card>
+                    <h1 id="alamat" class="mt-20 mx-auto font-bold text-xl">Alamat</h1>
+                    <div class=" w-full mt-8">
+                        <div class="flex w-10/12 flex-col lg:flex-row mx-auto gap-6 ">
+                            @php
+                            $bgInstagram = asset('assets/logo-instagram.png');
+                            $bgSujoeWerkudoro = asset('assets/foto-depan-sujoe.png');
+                            @endphp
+                            <div class=" border rounded-xl bg-sujoe shadow w-full ">
+                                <div class="h-32 lg:h-52 w-full bg-cover bg-clip-border bg-white   bg-no-repeat bg-center rounded-t-xl"
+                                    style="background-image: url('{{ $bgSujoeWerkudoro }}')">
+                                </div>
+                                <h3 class="font-light mt-2 mx-2 text-[15px] lg:font-semibold">sujoe werkudoro</h3>
+                                <p class="mx-2 text-[12px] text-gray-900">Jl. Werkudoro, Pengabean, Kec. Tegal Tim., Kota Tegal, Jawa Tengah 52125</p>
+                                <!-- <p class="mx-2 mt-1 text-slate-700  font-bold">Rp {{ number_format($product->price, 0) }}</p> -->
+                                <div class="flex mx-2 mt-4 mb-2 gap-2">
+                                    <a href=" https://www.instagram.com/sujoecafe_?utm_source=ig_web_button_share_sheet&igsh=MjNyZXBzaHBibTVv"
+                                        class="cursor-pointer">
+                                        <img src="{{ asset('assets/logo-instagram.png') }}" alt="" class=" w-7 h-7">
+                                    </a>
+                                    <a href="https://maps.app.goo.gl/PJeWXrwpmUpTkn4r7"
+                                        class="cursor-pointer">
+                                        <img src="{{ asset('assets/logo-point.png') }}" alt="" class=" w-7 h-7">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" border rounded-xl bg-sujoe shadow w-full ">
+                                <div class="h-32 lg:h-52 w-full bg-cover bg-clip-border bg-white   bg-no-repeat bg-center rounded-t-xl"
+                                    style="background-image: url('{{ $bgSujoeWerkudoro }}')">
+                                </div>
+                                <h3 class="font-light mt-2 mx-2 text-[15px] lg:font-semibold">sujoe kramat</h3>
+                                <p class="mx-2 text-[12px] text-gray-900">Jl. Garuda No.24, Bulak, Babakan, Kec. Kramat, Kabupaten Tegal, Jawa Tengah 52181</p>
+                                <!-- <p class="mx-2 mt-1 text-slate-700  font-bold">Rp {{ number_format($product->price, 0) }}</p> -->
+                                <div class="flex mx-2 mt-4 mb-2 gap-2">
+                                    <a href="https://www.instagram.com/sujoecafe2?utm_source=ig_web_button_share_sheet&igsh=MTdsMzFjbTN6ZXRocA=="
+                                        class="cursor-pointer">
+                                        <img src="{{ asset('assets/logo-instagram.png') }}" alt="" class=" w-7 h-7">
+                                    </a>
+                                    <a href="https://maps.app.goo.gl/zbzRPvUZUJHCd2AN7"
+                                        class="cursor-pointer">
+                                        <img src="{{ asset('assets/logo-point.png') }}" alt="" class=" w-7 h-7">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div id="map" style="height: 400px;" class="rounded-md shadow"></div>
-
-
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="mb-0">
+                        <path fill="#FCB92D" fill-opacity="1" d="M0,96L40,106.7C80,117,160,139,240,133.3C320,128,400,96,480,96C560,96,640,128,720,117.3C800,107,880,53,960,58.7C1040,64,1120,128,1200,144C1280,160,1360,128,1400,112L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+                    </svg>
                 </div>
-                <div class="drawer-side">
-                    <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
-                    <ul class="menu bg-base-200 min-h-full w-80 p-4">
-                        <!-- Sidebar content here -->
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                <div class="drawer-side z-40">
+                    <ul class="menu bg-base-200 min-h-full w-full p-4 flex flex-col items-center">
+                        <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay self-end">
+                            <img src="{{ asset('assets/close.png') }}" alt="">
+                        </label>
+                        <li><a href="#tentang" onclick="document.getElementById('my-drawer-3').checked = false">Tentang</a></li>
+                        <li><a href="#menu" onclick="document.getElementById('my-drawer-3').checked = false">Menu</a></li>
+                        <li><a href="#alamat" onclick="document.getElementById('my-drawer-3').checked = false">Alamat</a></li>
                     </ul>
                 </div>
+
             </div>
         </nav>
     </div>
 
-
-
-
-    <script>
-        const swiperEl = document.querySelector('swiper-container');
-        const btnNext = document.querySelector('#btnNext')
-        const btnPrev = document.querySelector('#btnPrev')
-
-        btnNext.addEventListener('click', () => {
-            swiperEl.swiper.slideNext();
-        });
-        btnPrev.addEventListener('click', () => {
-            swiperEl.swiper.slidePrev();
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            // Buat map dan tentukan titik koordinat serta zoom
-            var map = L.map('map').setView([-6.885628211166777, 109.137952922638], 13); // Jakarta
-
-            // Gunakan tile dari OpenStreetMap
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
-
-            // Tambahkan marker ke lokasi tersebut
-            L.marker([-6.885628211166777, 109.137952922638])
-                .addTo(map)
-                .bindPopup('<b>Halo!</b><br>Ini Jakarta.')
-                .openPopup();
-        });
-    </script>
 </body>
 
 </html>

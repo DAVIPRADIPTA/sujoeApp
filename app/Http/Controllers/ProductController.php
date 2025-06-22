@@ -105,7 +105,7 @@ class ProductController extends Controller
         // Update produk
         $product->update($validated);
 
-        return redirect()->route('dashboard')
+        return redirect()->route('product')
             ->with('success', 'Produk berhasil diperbarui');
     }
 

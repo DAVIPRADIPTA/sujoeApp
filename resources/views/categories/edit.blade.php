@@ -19,7 +19,7 @@
             </div>
 
             <div class="flex justify-end space-x-2">
-                <a href="{{ route('categories.index') }}"
+                <a href="{{ route('kategori') }}"
                     class="bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 shadow-sm transition duration-150">
                     Batal
                 </a>

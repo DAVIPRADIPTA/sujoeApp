@@ -6,10 +6,13 @@
 'instagram' => null
 ])
 
-<div class="border rounded-lg shadow-md p-4 bg-white dark:bg-gray-800">
-    @if ($img)
-    <img src="{{ $img }}" alt="{{ $title }}" class="..." />
-    @endif
+<div class="border rounded-xl shadow-md p-4 bg-sujoe dark:bg-gray-800">
+    <!-- @if ($img)
+    <img src="{{ $img }}" alt="{{ $title }}" class="w-full" />
+    @endif -->
+    <div class="h-24 w-full " style="background-image: url('{{ $img }}')">
+        
+    </div>
 
     <h2 class="text-lg font-semibold mb-1">{{ $title }}</h2>
 
