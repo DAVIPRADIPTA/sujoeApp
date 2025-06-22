@@ -53,7 +53,7 @@ class ProductController extends Controller
 
         Product::create($validated);
 
-        return redirect()->route('dashboard')
+        return redirect()->route('product')
             ->with('success', 'Produk berhasil ditambahkan!');
     }
 
@@ -115,7 +115,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('dashboard')->with('success', 'Produk berhasil dihapus!');
+        return redirect()->route('product')->with('success', 'Produk berhasil dihapus!');
     }
     /**
      * Search for products based on the query.
