@@ -38,23 +38,22 @@ class DashboardController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-    ]);
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
 
-    $filename = "carousel$id.jpg";
-    $path = "carousel/$filename"; // cukup 'carousel/...', karena disk sudah public
+        $filename = "carousel$id.jpg";
+        $path = "carousel/$filename"; // cukup 'carousel/...', karena disk sudah public
 
-    // Hapus file lama jika ada
-    if (Storage::disk('public')->exists($path)) {
-        Storage::disk('public')->delete($path);
+        // Hapus file lama jika ada
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
+
+        // Simpan file baru
+        $request->file('image')->storeAs('carousel', $filename, 'public');
+
+        return back()->with('success', 'Gambar carousel berhasil diperbarui.');
     }
-
-    // Simpan file baru
-    $request->file('image')->storeAs('carousel', $filename, 'public');
-
-    return back()->with('success', 'Gambar carousel berhasil diperbarui.');
-}
-
 }

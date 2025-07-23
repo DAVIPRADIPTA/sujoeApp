@@ -10,7 +10,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 text-center">
                 <p class="text-gray-600 dark:text-gray-300 text-sm">Jumlah Produk</p>
-                <h1 class="text-3xl font-bold text-blue-600 dark:text-blue-400">{{ $getCountProduct }}</h1>
+                <h1 class="text-3xl font-bold text-blue-600 dark:text-blue-400">{{ $getCountProduct
+                 }}</h1>
             </div>
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 text-center">
                 <p class="text-gray-600 dark:text-gray-300 text-sm">Jumlah Kategori</p>

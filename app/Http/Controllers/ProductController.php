@@ -129,7 +129,7 @@ class ProductController extends Controller
             ->where('name', 'like', '%' . $query . '%')
             ->get();
 
-        return view('dashboard', [
+        return view('products.product', [
             'products' => $products,
             'query' => $query,
         ]);

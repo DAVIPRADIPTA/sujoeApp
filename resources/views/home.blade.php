@@ -42,24 +42,28 @@
 
 <body class="font-dynapuff text-primary">
     <!-- HERO SECTION -->
-    <div class="bg-sujoe_base overflow-hidden  ">
-
+    <div class="bg-sujoe_base overflow-hidden">
         <div class="h-screen w-screen relative overflow-hidden">
             <div class="bg-sujoe h-full absolute animate-fade-in"></div>
-            <h1 class="absolute top-32 text-[120px]/[130px] font-bold  text-center w-full">
-                <div class="block">
-                    <span class="opacity-0 delay-300 inline-block animate-text-in">susu</span>
+            <div class="absolute top-32 w-full text-center">
+                <div class="relative inline-block">
+                    <x-application-logo class="w-40 absolute -top-20 z-10 right-18 opacity-0  animate-zoom-out " style="animation-delay: calc(2500 * 1ms);" />
+                    <h1 class="text-[120px]/[130px] font-bold">
+                        <div class="block">
+                            <span class="opacity-0 delay-300 inline-block animate-text-in">susu</span>
+                        </div>
+                        <div class="block">
+                            <span class="opacity-0 animate-text-in inline-block delay-700">sapi</span>
+                        </div>
+                        <div class="flex w-fit mx-auto">
+                            <span class="opacity-0 inline-block animate-maju-in delay-1100">m</span>
+                            <span class="opacity-0 inline-block animate-maju-in delay-1300">a</span>
+                            <span class="opacity-0 inline-block animate-maju-in delay-1500">j</span>
+                            <span class="opacity-0 inline-block animate-maju-in delay-1700">u</span>
+                        </div>
+                    </h1>
                 </div>
-                <div class="block">
-                    <span class="opacity-0 animate-text-in inline-block delay-700">sapi</span>
-                </div>
-                <div class="flex w-fit mx-auto">
-                    <span class="opacity-0 inline-block animate-maju-in delay-1100">m</span>
-                    <span class="opacity-0 inline-block animate-maju-in delay-1300">a</span>
-                    <span class="opacity-0 inline-block animate-maju-in delay-1500">j</span>
-                    <span class="opacity-0 inline-block animate-maju-in delay-1700">u</span>
-                </div>
-            </h1>
+            </div>
         </div>
     </div>
 
@@ -106,15 +110,13 @@
                         <div class="flex flex-col w-10/12 mx-auto gap-10">
                             <div class="flex justify-between items-center">
                                 <div class="text-[30px] lg:text-[90px] leading-[45px] tracking-tighter lg:leading-sujoe ">
-                                    Lorem ipsum <br /> dolor sit <br /> <span class="text-secondary">amet</span>
+                                    susu <br /> cerdas <br /> <span class="text-secondary">sekeluarga</span>
                                 </div>
                                 <img class="w-[150px] lg:w-[250px] " src="{{ asset('assets/maskot.png') }}" alt="">
                             </div>
                             <p class="text-[10px] lg:text-xs">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, repellendus molestiae eligendi illo iusto facilis ad ea rem perferendis doloribus! Quis sint, accusantium architecto, amet minus reiciendis magnam incidunt neque distinctio ut expedita enim, aspernatur asperiores et repellat nisi temporibus maiores quidem eius. Vero ad dolores esse placeat repudiandae laborum.
-                            </p>
+                                Cafe susu sapi yang menyediakan susu sapi dan kambing murni berkualitas sejak 1980 dengan berbagai varian rasa, snack, dan makanan berat yang terus dikembangkan. Serta menyediakan berbagai fasilitas tempat yang pastinya nyaman untuk semua kalangan </p>
                         </div>
-
                     </div>
                     @php
                     $bgCarousel1 = asset("storage/carousel/carousel1.jpg");
@@ -176,10 +178,10 @@
 
                     </div>
 
-                    <h1  class="mt-20 font-bold mx-auto text-xl">Menu</h1>
+                    <h1 class="mt-20 font-bold mx-auto text-xl">Menu</h1>
                     <div class="flex gap-0 w-10/12 mx-auto lg:bg-sujoe lg:h-96 lg:rounded-3xl mt-8">
                         <div class="hidden lg:block lg:w-1/2">
-                            <img src="{{ asset('assets/milkshake.jpg') }}" alt="" class="w-full h-full rounded-l-3xl">
+                            <img src="{{ asset('assets/milkshake.webp') }}" alt="" class="w-full h-full rounded-l-3xl">
                         </div>
                         <div x-data="{ activeTab: '{{ $categories->first()->slug }}' }" class="lg:py-1 lg:w-1/2 lg:h-96 h-80 rounded-3xl lg:rounded-r-3xl max-w-4xl mx-auto  lg:mt-0 bg-sujoe w-full">
                             <!-- Tab Buttons -->
@@ -216,13 +218,14 @@
                             @php
                             $bgInstagram = asset('assets/logo-instagram.png');
                             $bgSujoeWerkudoro = asset('assets/foto-depan-sujoe.png');
+                            $bgSujoeKeramat = asset('assets/sujoe-karamat.jpg');
                             @endphp
                             <div class=" border rounded-xl bg-sujoe shadow w-full ">
                                 <div class="h-32 lg:h-52 w-full bg-cover bg-clip-border bg-white   bg-no-repeat bg-center rounded-t-xl"
                                     style="background-image: url('{{ $bgSujoeWerkudoro }}')">
                                 </div>
                                 <h3 class="font-light mt-2 mx-2 text-[15px] lg:font-semibold">sujoe werkudoro</h3>
-                                <p class="mx-2 text-[12px] text-gray-900">Jl. Werkudoro, Pengabean, Kec. Tegal Tim., Kota Tegal, Jawa Tengah 52125</p>
+                                <p class="mx-2 text-[12px] text-gray-900"> Jl Werkudoro no. 213 RT01 RW06, Slerok, Tegal Timur, Kota Tegal 52125</p>
                                 <!-- <p class="mx-2 mt-1 text-slate-700  font-bold">Rp {{ number_format($product->price, 0) }}</p> -->
                                 <div class="flex mx-2 mt-4 mb-2 gap-2">
                                     <a href=" https://www.instagram.com/sujoecafe_?utm_source=ig_web_button_share_sheet&igsh=MjNyZXBzaHBibTVv"
@@ -237,7 +240,7 @@
                             </div>
                             <div class=" border rounded-xl bg-sujoe shadow w-full ">
                                 <div class="h-32 lg:h-52 w-full bg-cover bg-clip-border bg-white   bg-no-repeat bg-center rounded-t-xl"
-                                    style="background-image: url('{{ $bgSujoeWerkudoro }}')">
+                                    style="background-image: url('{{ $bgSujoeKeramat }}')">
                                 </div>
                                 <h3 class="font-light mt-2 mx-2 text-[15px] lg:font-semibold">sujoe kramat</h3>
                                 <p class="mx-2 text-[12px] text-gray-900">Jl. Garuda No.24, Bulak, Babakan, Kec. Kramat, Kabupaten Tegal, Jawa Tengah 52181</p>
@@ -255,9 +258,51 @@
                             </div>
                         </div>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="mb-0 h-16 w-full" preserveAspectRatio="none">
                         <path fill="#FCB92D" fill-opacity="1" d="M0,96L40,106.7C80,117,160,139,240,133.3C320,128,400,96,480,96C560,96,640,128,720,117.3C800,107,880,53,960,58.7C1040,64,1120,128,1200,144C1280,160,1360,128,1400,112L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
                     </svg>
+                    <footer class="bg-[#FCB92D] text-black py-10">
+                        <div class="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                            <!-- Brand Info -->
+                            <div>
+                                <x-application-logo class="w-16 mx-auto md:mx-0 mb-2" />
+                                <p class="font-bold text-lg">Sujoe Cafe</p>
+                                <p class="text-sm mt-1">Susu sapi segar dan nikmat. Hadirkan energi dan semangat setiap hari.</p>
+                            </div>
+
+                            <!-- Navigasi -->
+                            <div>
+                                <p class="font-bold mb-2">Navigasi</p>
+                                <ul class="space-y-1 text-sm">
+                                    <li><a href="#tentang" class="hover:underline">Tentang</a></li>
+                                    <li><a href="#menu" class="hover:underline">Menu</a></li>
+                                    <li><a href="#alamat" class="hover:underline">Alamat</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Kontak -->
+                            <div>
+                                <p class="font-bold mb-2">Hubungi Kami</p>
+                                <p class="text-sm">sujoecafe@gmail.com</p>
+                                <a href="https://wa.me/6285695328781" target="_blank" rel="noopener noreferrer">
+                                    <p class="text-sm mb-2">0856 9532 8781</p>
+                                </a>
+
+                                <!-- <div class="flex justify-center md:justify-start gap-3 mt-2">
+                                    <a href="https://instagram.com/sujoecafe_" target="_blank">
+                                        <img src="{{ asset('assets/logo-instagram.png') }}" class="w-6 h-6" alt="Instagram" />
+                                    </a>
+                                    <a href="https://maps.app.goo.gl/PJeWXrwpmUpTkn4r7" target="_blank">
+                                        <img src="{{ asset('assets/logo-point.png') }}" class="w-6 h-6" alt="Maps" />
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="text-center text-xs mt-10">
+                            &copy; {{ date('Y') }} Sujoe Cafe. All rights reserved.
+                        </div>
+                    </footer>
                 </div>
                 <div class="drawer-side z-40">
                     <ul class="menu bg-base-200 min-h-full w-full p-4 flex flex-col items-center">
